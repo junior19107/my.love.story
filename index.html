@@ -12,11 +12,11 @@
 body{
 margin:0;
 font-family:'Playfair Display',serif;
-overflow:hidden;
 background:linear-gradient(to bottom,#ffdce6,#ffffff);
+overflow:hidden;
 }
 
-/* INICIO */
+/* PANTALLA INICIAL */
 
 .inicio{
 height:100vh;
@@ -25,12 +25,12 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-animation:fadeIn 2s ease-in-out;
+animation:fade 2s ease-in-out;
 }
 
 .titulo{
 font-family:'Great Vibes',cursive;
-font-size:60px;
+font-size:55px;
 color:#c97b8b;
 }
 
@@ -88,17 +88,17 @@ align-items:center;
 .carta{
 background:rgba(255,255,255,0.95);
 width:85%;
-max-width:850px;
+max-width:900px;
 padding:40px;
 border-radius:20px;
 box-shadow:0 25px 60px rgba(0,0,0,0.5);
-transform:rotateY(90deg);
 animation:abrir 1.5s forwards;
 overflow-y:auto;
 max-height:90vh;
 }
 
 @keyframes abrir{
+from{transform:rotateY(90deg);}
 to{transform:rotateY(0);}
 }
 
@@ -113,12 +113,13 @@ p{
 line-height:1.9;
 font-size:18px;
 color:#333;
-opacity:0;
-animation:escribir 2s forwards;
+margin-bottom:18px;
 }
 
-@keyframes escribir{
-to{opacity:1;}
+.regalo, .opciones, .resultado{
+display:none;
+text-align:center;
+margin-top:25px;
 }
 
 /* ESTRELLAS */
@@ -133,7 +134,7 @@ animation:twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle{
-from{opacity:0.2;}
+from{opacity:0.3;}
 to{opacity:1;}
 }
 
@@ -154,28 +155,7 @@ animation:caer linear infinite;
 to{transform:translateY(110vh) rotate(360deg);}
 }
 
-/* REGALO */
-
-.regalo{
-display:none;
-margin-top:30px;
-text-align:center;
-}
-
-.opciones{
-display:none;
-margin-top:20px;
-text-align:center;
-}
-
-.resultado{
-display:none;
-margin-top:20px;
-font-size:20px;
-text-align:center;
-}
-
-@keyframes fadeIn{
+@keyframes fade{
 from{opacity:0;}
 to{opacity:1;}
 }
@@ -198,11 +178,19 @@ to{opacity:1;}
 
 <h2>Feliz 19 años ✨</h2>
 
-<p>Hoy celebramos tus 19 años… una etapa llena de luz y crecimiento.</p>
-<p>Que cada sueño encuentre su camino y cada meta se transforme en logro.</p>
-<p>Desde hace cuatro años que te conocí entendí que hay personas que dejan huella… tú eres una de ellas.</p>
-<p>La distancia ha sido una prueba silenciosa… pero también una enseñanza.</p>
-<p>Te extraño, sí… pero con respeto, con admiración y con cariño limpio.</p>
+<p>Hoy celebramos tus 19 años… una etapa donde los sueños comienzan a tomar forma real. Que cada meta que guardas en tu corazón encuentre su camino, que cada deseo tenga la valentía de convertirse en logro, y que la vida te regale momentos tan hermosos como tu sonrisa.</p>
+
+<p>Que este nuevo año te acerque a tus metas, a tus estudios, a tus proyectos y a todo aquello que has imaginado en silencio. Que nunca pierdas tu esencia, tu ternura, ni esa forma tan tuya de iluminar sin darte cuenta.</p>
+
+<p>Desde hace cuatro años que te conocí entendí que hay personas que llegan y cambian algo dentro de uno… y tú fuiste eso para mí. No por lo que pasó, sino por lo que sembraste en mi historia.</p>
+
+<p>La distancia ha sido una prueba silenciosa… a veces pesa, a veces duele… pero también demuestra que cuando algo es verdadero, ni los kilómetros lo borran.</p>
+
+<p>Te extraño… sí, muchísimo. Pero te extraño con respeto, con admiración, con cariño limpio. No desde la insistencia, sino desde la sinceridad.</p>
+
+<p>Y si algún día nuestros caminos vuelven a coincidir… quizá podríamos intentarlo una última vez, no desde la prisa, no desde la necesidad, sino desde la madurez.</p>
+
+<p>Solo quise dejar esa puerta entreabierta… sin presión, sin insistencia, solo con honestidad.</p>
 
 <div class="regalo" id="regalo">
 <button onclick="mostrarOpciones()">🎁 Abrir regalo</button>
@@ -234,7 +222,7 @@ crearEstrellas();
 
 setTimeout(()=>{
 document.getElementById("regalo").style.display="block";
-},8000);
+},12000);
 }
 
 function mostrarOpciones(){
@@ -265,7 +253,7 @@ document.body.appendChild(petalo);
 }
 
 function crearEstrellas(){
-for(let i=0;i<50;i++){
+for(let i=0;i<40;i++){
 let star=document.createElement("div");
 star.className="star";
 star.style.top=Math.random()*100+"vh";
