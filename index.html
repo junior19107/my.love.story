@@ -8,12 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
-background: linear-gradient(to bottom,#ffdce6,#ffffff);
-font-family:'Playfair Display', serif;
+font-family:'Playfair Display',serif;
+background:linear-gradient(to bottom,#ffdce6,#ffffff);
 overflow-x:hidden;
 }
+
+/* Pantalla inicio */
 
 .inicio{
 height:100vh;
@@ -26,15 +29,14 @@ animation:fadeIn 2s ease-in-out;
 }
 
 .titulo{
-font-family:'Great Vibes', cursive;
+font-family:'Great Vibes',cursive;
 font-size:60px;
 color:#c97b8b;
 }
 
 .fecha{
-font-size:20px;
-margin-top:-10px;
 color:#a86c7a;
+margin-top:-10px;
 }
 
 img{
@@ -60,36 +62,74 @@ button:hover{
 background:#e68ca5;
 }
 
+/* Carta animada */
+
+.carta-container{
+display:none;
+height:100vh;
+background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.overlay{
+background:rgba(0,0,0,0.55);
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
 .carta{
-display:none;
+background:rgba(255,255,255,0.92);
+width:80%;
 max-width:800px;
-margin:auto;
 padding:40px;
-line-height:1.9;
-font-size:18px;
-animation:fadeIn 2s ease-in-out;
+border-radius:15px;
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+animation:abrir 1.5s ease;
+overflow-y:auto;
+max-height:90vh;
 }
 
-.pagina{
-display:none;
+@keyframes abrir{
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }
 
-.fragmento-final{
-display:none;
-margin-top:40px;
-padding:30px;
-background:#fff0f5;
-border-radius:20px;
-font-style:italic;
+h2{
+font-family:'Great Vibes',cursive;
+font-size:40px;
+color:#c97b8b;
 text-align:center;
 }
 
+p{
+line-height:1.8;
+font-size:18px;
+color:#333;
+}
+
+.final{
+display:none;
+margin-top:30px;
+padding:20px;
+background:#fff0f5;
+border-radius:15px;
+font-style:italic;
+}
+
 /* Pétalos */
+
 .petalo{
 position:fixed;
 top:-10px;
-width:15px;
-height:15px;
+width:12px;
+height:12px;
 background:pink;
 border-radius:50%;
 opacity:0.7;
@@ -106,136 +146,123 @@ transform:translateY(110vh) rotate(360deg);
 from{opacity:0;}
 to{opacity:1;}
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="inicio">
+<div class="inicio" id="inicio">
 <div class="titulo">Feliz cumpleaños Natita de leche 💖</div>
 <div class="fecha">2 / 03 / 07</div>
 <img src="20240113_201446.jpg">
 <button onclick="abrirCarta()">Entrar</button>
 </div>
 
-<div class="carta" id="carta">
+<div class="carta-container" id="cartaContainer">
+<div class="overlay">
+<div class="carta">
 
-<!-- PAGINA 1 FELICITACIONES -->
-<div class="pagina" id="pagina1">
-
-<h2 style="font-family:'Great Vibes',cursive;font-size:40px;color:#c97b8b;">Feliz 19 años ✨</h2>
+<h2>Feliz 19 años ✨</h2>
 
 <p>
-Hoy el mundo cumple 19 años de haberte recibido… y sinceramente, qué privilegio.
-No es solo tu cumpleaños, es el aniversario de una esencia única, de una luz que no cualquiera tiene.
+Hoy celebramos tus 19 años… y no es solo un número.
+Es el reflejo de una historia que apenas comienza a brillar.
+Te deseo un año lleno de metas cumplidas, de sueños que tomen forma,
+de decisiones que te acerquen a la mujer increíble que estás destinada a ser.
 </p>
 
 <p>
-Que estos 19 años sean el comienzo de la etapa más hermosa de tu vida.
-Que cada meta que tengas se convierta en realidad.
-Que cada sueño que guardas en silencio encuentre el camino para cumplirse.
+Que encuentres paz en cada paso,
+que el éxito llegue con naturalidad,
+que nunca dudes del valor que tienes.
+Que la vida te sorprenda con momentos hermosos,
+con personas sinceras,
+con oportunidades grandes.
 </p>
 
 <p>
-Te deseo un año lleno de crecimiento, de decisiones sabias, de momentos que te hagan sentir orgullosa.
-Que construyas la vida que imaginas, que viajes, que sonrías más de lo que lloras,
-que encuentres personas que valoren tu corazón como merece.
+Desde hace cuatro años que te conocí,
+entendí que hay personas que llegan para marcar una diferencia.
+Y tú, sin duda, eres una de ellas.
 </p>
 
 <p>
-Que la vida te sorprenda bonito.
-Que tus 19 años estén llenos de amor sano, éxito, tranquilidad y oportunidades.
-Que nunca dudes de lo increíble que eres.
-</p>
-
-<button onclick="siguientePagina()">Siguiente página</button>
-
-</div>
-
-<!-- PAGINA 2 CARTA -->
-<div class="pagina" id="pagina2">
-
-<h2 style="font-family:'Great Vibes',cursive;font-size:35px;color:#c97b8b;">Mi querida Natita…</h2>
-
-<p>
-Han pasado cuatro años desde que te conocí…
-y aunque el tiempo pueda parecer corto para algunos,
-para mí ha sido suficiente para entender lo especial que eres.
-</p>
-
-<p>
-Desde el primer momento supe que no eras alguien pasajera.
-Tu manera de ser dejó huella.
-</p>
-
-<p>
-Si estos años me enseñaron algo,
-es que conocerte ha sido uno de los capítulos más significativos de mi vida.
-</p>
-
-<p>
-La distancia ha sido una prueba silenciosa.
-A veces pesa, a veces duele…
-pero también demuestra que cuando algo es verdadero,
+La distancia ha sido una prueba silenciosa…
+pero también una enseñanza.
+Porque cuando algo es verdadero,
 ni los kilómetros lo borran.
 </p>
 
 <p>
-Te extraño… sí, muchísimo.
-Pero te extraño con respeto,
+Te extraño, sí…
+pero con respeto,
 con admiración,
 con cariño limpio.
 </p>
 
+<div class="final" id="finalText">
+
+<p>
+Si algún día nuestros caminos vuelven a coincidir,
+me gustaría que fuera desde la calma,
+desde la madurez,
+desde lo que ambos hemos aprendido.
+</p>
+
+<p>
+No lo digo desde la insistencia,
+sino desde la honestidad de alguien que valora lo que compartimos.
+</p>
+
+<p>
+Y mientras tanto,
+solo me queda desearte felicidad,
+éxito,
+y un cumpleaños tan hermoso como tú.
+</p>
+
+<p style="margin-top:25px;">
+🌹 Poema 🌹
+</p>
+
+<p>
+Bajo el cielo que guarda memorias,
+tu nombre aún suena suave en el viento.
+Cuatro años no son solo tiempo,
+son capítulos escritos con sentimiento.
+Que tus pasos encuentren destino,
+que tus sueños encuentren verdad,
+y que si la vida vuelve a cruzarnos,
+sea con paz… y claridad.
+</p>
+
+</div>
+
 <button onclick="mostrarFinal()">Último intento</button>
 
 </div>
-
-<!-- FRAGMENTO FINAL -->
-<div class="fragmento-final" id="final">
-
-<p>
-Y si algún día nuestros caminos vuelven a coincidir…
-quizá podríamos intentarlo una última vez,
-no desde la prisa,
-no desde la necesidad,
-sino desde la madurez.
-</p>
-
-<p>
-Solo quise dejar esa puerta entreabierta…
-sin presión,
-sin insistencia,
-solo con honestidad.
-</p>
-
 </div>
-
 </div>
 
 <audio autoplay loop>
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b5e59.mp3" type="audio/mpeg">
+<source src="los-2020s-lyric-video.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+
 function abrirCarta(){
-document.querySelector('.inicio').style.display="none";
-document.getElementById('carta').style.display="block";
-document.getElementById('pagina1').style.display="block";
+document.getElementById("inicio").style.display="none";
+document.getElementById("cartaContainer").style.display="flex";
 crearPetalos();
 }
 
-function siguientePagina(){
-document.getElementById('pagina1').style.display="none";
-document.getElementById('pagina2').style.display="block";
-}
-
 function mostrarFinal(){
-document.getElementById('final').style.display="block";
+document.getElementById("finalText").style.display="block";
 }
 
 function crearPetalos(){
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
 let petalo=document.createElement("div");
 petalo.className="petalo";
 petalo.style.left=Math.random()*100+"vw";
@@ -243,6 +270,7 @@ petalo.style.animationDuration=(5+Math.random()*5)+"s";
 document.body.appendChild(petalo);
 }
 }
+
 </script>
 
 </body>
