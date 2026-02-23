@@ -12,11 +12,11 @@
 body{
 margin:0;
 font-family:'Playfair Display',serif;
+overflow:hidden;
 background:linear-gradient(to bottom,#ffdce6,#ffffff);
-overflow-x:hidden;
 }
 
-/* Pantalla inicio */
+/* INICIO */
 
 .inicio{
 height:100vh;
@@ -60,14 +60,15 @@ transition:0.3s;
 
 button:hover{
 background:#e68ca5;
+transform:scale(1.05);
 }
 
-/* Carta animada */
+/* CARTA */
 
 .carta-container{
 display:none;
 height:100vh;
-background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+background-image:url('https://images.unsplash.com/photo-1493244040629-496f6d136cc3');
 background-size:cover;
 background-position:center;
 display:flex;
@@ -76,7 +77,7 @@ align-items:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.55);
+background:rgba(0,0,0,0.6);
 width:100%;
 height:100%;
 display:flex;
@@ -85,45 +86,58 @@ align-items:center;
 }
 
 .carta{
-background:rgba(255,255,255,0.92);
-width:80%;
-max-width:800px;
+background:rgba(255,255,255,0.95);
+width:85%;
+max-width:850px;
 padding:40px;
-border-radius:15px;
-box-shadow:0 20px 50px rgba(0,0,0,0.4);
-animation:abrir 1.5s ease;
+border-radius:20px;
+box-shadow:0 25px 60px rgba(0,0,0,0.5);
+transform:rotateY(90deg);
+animation:abrir 1.5s forwards;
 overflow-y:auto;
 max-height:90vh;
 }
 
 @keyframes abrir{
-from{transform:scale(0.7);opacity:0;}
-to{transform:scale(1);opacity:1;}
+to{transform:rotateY(0);}
 }
 
 h2{
 font-family:'Great Vibes',cursive;
-font-size:40px;
+font-size:45px;
 color:#c97b8b;
 text-align:center;
 }
 
 p{
-line-height:1.8;
+line-height:1.9;
 font-size:18px;
 color:#333;
+opacity:0;
+animation:escribir 2s forwards;
 }
 
-.final{
-display:none;
-margin-top:30px;
-padding:20px;
-background:#fff0f5;
-border-radius:15px;
-font-style:italic;
+@keyframes escribir{
+to{opacity:1;}
 }
 
-/* Pétalos */
+/* ESTRELLAS */
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:0.2;}
+to{opacity:1;}
+}
+
+/* PÉTALOS */
 
 .petalo{
 position:fixed;
@@ -137,9 +151,28 @@ animation:caer linear infinite;
 }
 
 @keyframes caer{
-to{
-transform:translateY(110vh) rotate(360deg);
+to{transform:translateY(110vh) rotate(360deg);}
 }
+
+/* REGALO */
+
+.regalo{
+display:none;
+margin-top:30px;
+text-align:center;
+}
+
+.opciones{
+display:none;
+margin-top:20px;
+text-align:center;
+}
+
+.resultado{
+display:none;
+margin-top:20px;
+font-size:20px;
+text-align:center;
 }
 
 @keyframes fadeIn{
@@ -165,81 +198,23 @@ to{opacity:1;}
 
 <h2>Feliz 19 años ✨</h2>
 
-<p>
-Hoy celebramos tus 19 años… y no es solo un número.
-Es el reflejo de una historia que apenas comienza a brillar.
-Te deseo un año lleno de metas cumplidas, de sueños que tomen forma,
-de decisiones que te acerquen a la mujer increíble que estás destinada a ser.
-</p>
+<p>Hoy celebramos tus 19 años… una etapa llena de luz y crecimiento.</p>
+<p>Que cada sueño encuentre su camino y cada meta se transforme en logro.</p>
+<p>Desde hace cuatro años que te conocí entendí que hay personas que dejan huella… tú eres una de ellas.</p>
+<p>La distancia ha sido una prueba silenciosa… pero también una enseñanza.</p>
+<p>Te extraño, sí… pero con respeto, con admiración y con cariño limpio.</p>
 
-<p>
-Que encuentres paz en cada paso,
-que el éxito llegue con naturalidad,
-que nunca dudes del valor que tienes.
-Que la vida te sorprenda con momentos hermosos,
-con personas sinceras,
-con oportunidades grandes.
-</p>
-
-<p>
-Desde hace cuatro años que te conocí,
-entendí que hay personas que llegan para marcar una diferencia.
-Y tú, sin duda, eres una de ellas.
-</p>
-
-<p>
-La distancia ha sido una prueba silenciosa…
-pero también una enseñanza.
-Porque cuando algo es verdadero,
-ni los kilómetros lo borran.
-</p>
-
-<p>
-Te extraño, sí…
-pero con respeto,
-con admiración,
-con cariño limpio.
-</p>
-
-<div class="final" id="finalText">
-
-<p>
-Si algún día nuestros caminos vuelven a coincidir,
-me gustaría que fuera desde la calma,
-desde la madurez,
-desde lo que ambos hemos aprendido.
-</p>
-
-<p>
-No lo digo desde la insistencia,
-sino desde la honestidad de alguien que valora lo que compartimos.
-</p>
-
-<p>
-Y mientras tanto,
-solo me queda desearte felicidad,
-éxito,
-y un cumpleaños tan hermoso como tú.
-</p>
-
-<p style="margin-top:25px;">
-🌹 Poema 🌹
-</p>
-
-<p>
-Bajo el cielo que guarda memorias,
-tu nombre aún suena suave en el viento.
-Cuatro años no son solo tiempo,
-son capítulos escritos con sentimiento.
-Que tus pasos encuentren destino,
-que tus sueños encuentren verdad,
-y que si la vida vuelve a cruzarnos,
-sea con paz… y claridad.
-</p>
-
+<div class="regalo" id="regalo">
+<button onclick="mostrarOpciones()">🎁 Abrir regalo</button>
 </div>
 
-<button onclick="mostrarFinal()">Último intento</button>
+<div class="opciones" id="opciones">
+<p>¿Te gustaría intentarlo?</p>
+<button onclick="respuestaSi()">Sí</button>
+<button onclick="respuestaNo()">No</button>
+</div>
+
+<div class="resultado" id="resultado"></div>
 
 </div>
 </div>
@@ -255,10 +230,28 @@ function abrirCarta(){
 document.getElementById("inicio").style.display="none";
 document.getElementById("cartaContainer").style.display="flex";
 crearPetalos();
+crearEstrellas();
+
+setTimeout(()=>{
+document.getElementById("regalo").style.display="block";
+},8000);
 }
 
-function mostrarFinal(){
-document.getElementById("finalText").style.display="block";
+function mostrarOpciones(){
+document.getElementById("opciones").style.display="block";
+}
+
+function respuestaSi(){
+let r=document.getElementById("resultado");
+r.style.display="block";
+r.innerHTML="✨ Felicidades… volviste a ser mi Natita de leche 💖";
+document.body.style.background="linear-gradient(to bottom,#ffb6c1,#fff)";
+}
+
+function respuestaNo(){
+let r=document.getElementById("resultado");
+r.style.display="block";
+r.innerHTML="Gracias por todo… espero que la vida nos permita intentarlo en un futuro no muy lejano 🤍";
 }
 
 function crearPetalos(){
@@ -268,6 +261,16 @@ petalo.className="petalo";
 petalo.style.left=Math.random()*100+"vw";
 petalo.style.animationDuration=(5+Math.random()*5)+"s";
 document.body.appendChild(petalo);
+}
+}
+
+function crearEstrellas(){
+for(let i=0;i<50;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.top=Math.random()*100+"vh";
+star.style.left=Math.random()*100+"vw";
+document.body.appendChild(star);
 }
 }
 
