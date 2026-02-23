@@ -1,1 +1,169 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Natita 💖</title>
+
+<style>
+body{
+margin:0;
+font-family: 'Georgia', serif;
+background: linear-gradient(to bottom, #ffdce6, #ffffff);
+color:#444;
+overflow-x:hidden;
+}
+
+.inicio{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+animation:fadeIn 2s ease-in-out;
+}
+
+.inicio h1{
+font-size:40px;
+color:#c97b8b;
+}
+
+.fecha{
+font-size:20px;
+margin-bottom:20px;
+color:#a86c7a;
+}
+
+img{
+width:250px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+margin:20px;
+}
+
+button{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#f7b5c5;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#e89aad;
+}
+
+.carta{
+display:none;
+padding:40px;
+max-width:800px;
+margin:auto;
+line-height:1.8;
+font-size:18px;
+animation:fadeIn 2s ease-in-out;
+}
+
+.fragmento-final{
+display:none;
+margin-top:50px;
+padding:30px;
+background:#fff0f5;
+border-radius:20px;
+text-align:center;
+font-style:italic;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="inicio">
+<h1>Feliz cumpleaños Natita de leche 💖</h1>
+<div class="fecha">2 / 03 / 07</div>
+<img src="20240113_201446.jpg">
+<button onclick="mostrarCarta()">Entrar</button>
+</div>
+
+<div class="carta" id="carta">
+
+<h2>Mi querida Natita…</h2>
+
+<p>
+Hoy no solo celebro el día en que naciste… celebro la existencia de alguien que cambió mi vida sin siquiera proponérselo.
+Han pasado ya cuatro años desde que te conocí, y aunque el tiempo pueda parecer corto para algunos, para mí ha sido suficiente para entender lo especial que eres.
+</p>
+
+<p>
+Desde el primer momento en que te vi, algo dentro de mí supo que no eras una persona común en mi historia. 
+Tu forma de sonreír, tu manera de hablar, la luz que llevas en tu mirada… todo en ti tiene algo que deja huella.
+</p>
+
+<p>
+La distancia ha sido una prueba silenciosa. 
+A veces pesa, a veces duele… pero también me ha enseñado que cuando algo es verdadero, ni los kilómetros lo borran.
+No escribo esto desde la insistencia, sino desde la sinceridad.
+Te extraño… sí, muchísimo.
+Pero te extraño con respeto, con admiración y con cariño limpio.
+</p>
+
+<p>
+En tu cumpleaños deseo que cumplas cada una de tus metas, que tus sueños se vuelvan planes y tus planes realidades.
+Que nunca pierdas esa esencia tan tuya, tan única.
+Que la vida te abrace bonito y que siempre encuentres motivos para sonreír.
+</p>
+
+<p>
+Si estos cuatro años me enseñaron algo, es que conocerte ha sido uno de los capítulos más significativos de mi vida.
+Y aunque el tiempo y las circunstancias cambien, lo que siento siempre será elegante, sincero y sin presiones.
+</p>
+
+<p>
+Feliz cumpleaños.
+Que este nuevo año esté lleno de luz, crecimiento y amor.
+Siempre voy a desearte lo mejor, incluso en silencio.
+</p>
+
+<div class="fragmento-final" id="final">
+<p>
+Y si algún día nuestros caminos vuelven a coincidir…  
+quizá podríamos intentarlo una última vez,  
+no desde la prisa,  
+no desde la necesidad,  
+sino desde la madurez de dos personas que aprendieron.  
+
+Solo quise dejar esa puerta entreabierta…  
+sin presión,  
+sin insistencia,  
+solo con honestidad.
+</p>
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b5e59.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function mostrarCarta(){
+document.querySelector('.inicio').style.display="none";
+document.querySelector('.carta').style.display="block";
+
+setTimeout(()=>{
+document.getElementById('final').style.display="block";
+},10000);
+}
+</script>
+
+</body>
+</html>
