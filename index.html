@@ -13,10 +13,10 @@ body{
 margin:0;
 font-family:'Playfair Display',serif;
 background:linear-gradient(to bottom,#ffdce6,#ffffff);
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* PANTALLA INICIAL */
+/* Pantalla inicio */
 
 .inicio{
 height:100vh;
@@ -25,12 +25,12 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-animation:fade 2s ease-in-out;
+animation:fadeIn 2s ease-in-out;
 }
 
 .titulo{
 font-family:'Great Vibes',cursive;
-font-size:55px;
+font-size:60px;
 color:#c97b8b;
 }
 
@@ -60,15 +60,14 @@ transition:0.3s;
 
 button:hover{
 background:#e68ca5;
-transform:scale(1.05);
 }
 
-/* CARTA */
+/* Carta animada */
 
 .carta-container{
 display:none;
 height:100vh;
-background-image:url('https://images.unsplash.com/photo-1493244040629-496f6d136cc3');
+background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
 background-size:cover;
 background-position:center;
 display:flex;
@@ -77,7 +76,7 @@ align-items:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.55);
 width:100%;
 height:100%;
 display:flex;
@@ -86,59 +85,45 @@ align-items:center;
 }
 
 .carta{
-background:rgba(255,255,255,0.95);
-width:85%;
-max-width:900px;
+background:rgba(255,255,255,0.92);
+width:80%;
+max-width:800px;
 padding:40px;
-border-radius:20px;
-box-shadow:0 25px 60px rgba(0,0,0,0.5);
-animation:abrir 1.5s forwards;
+border-radius:15px;
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+animation:abrir 1.5s ease;
 overflow-y:auto;
 max-height:90vh;
 }
 
 @keyframes abrir{
-from{transform:rotateY(90deg);}
-to{transform:rotateY(0);}
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }
 
 h2{
 font-family:'Great Vibes',cursive;
-font-size:45px;
+font-size:40px;
 color:#c97b8b;
 text-align:center;
 }
 
 p{
-line-height:1.9;
+line-height:1.8;
 font-size:18px;
 color:#333;
-margin-bottom:18px;
 }
 
-.regalo, .opciones, .resultado{
+.final{
 display:none;
-text-align:center;
-margin-top:25px;
+margin-top:30px;
+padding:20px;
+background:#fff0f5;
+border-radius:15px;
+font-style:italic;
 }
 
-/* ESTRELLAS */
-
-.star{
-position:fixed;
-width:3px;
-height:3px;
-background:white;
-border-radius:50%;
-animation:twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle{
-from{opacity:0.3;}
-to{opacity:1;}
-}
-
-/* PÉTALOS */
+/* Pétalos */
 
 .petalo{
 position:fixed;
@@ -152,10 +137,12 @@ animation:caer linear infinite;
 }
 
 @keyframes caer{
-to{transform:translateY(110vh) rotate(360deg);}
+to{
+transform:translateY(110vh) rotate(360deg);
+}
 }
 
-@keyframes fade{
+@keyframes fadeIn{
 from{opacity:0;}
 to{opacity:1;}
 }
@@ -178,31 +165,81 @@ to{opacity:1;}
 
 <h2>Feliz 19 años ✨</h2>
 
-<p>Hoy celebramos tus 19 años… una etapa donde los sueños comienzan a tomar forma real. Que cada meta que guardas en tu corazón encuentre su camino, que cada deseo tenga la valentía de convertirse en logro, y que la vida te regale momentos tan hermosos como tu sonrisa.</p>
+<p>
+Hoy celebramos tus 19 años… y no es solo un número.
+Es el reflejo de una historia que apenas comienza a brillar.
+Te deseo un año lleno de metas cumplidas, de sueños que tomen forma,
+de decisiones que te acerquen a la mujer increíble que estás destinada a ser.
+</p>
 
-<p>Que este nuevo año te acerque a tus metas, a tus estudios, a tus proyectos y a todo aquello que has imaginado en silencio. Que nunca pierdas tu esencia, tu ternura, ni esa forma tan tuya de iluminar sin darte cuenta.</p>
+<p>
+Que encuentres paz en cada paso,
+que el éxito llegue con naturalidad,
+que nunca dudes del valor que tienes.
+Que la vida te sorprenda con momentos hermosos,
+con personas sinceras,
+con oportunidades grandes.
+</p>
 
-<p>Desde hace cuatro años que te conocí entendí que hay personas que llegan y cambian algo dentro de uno… y tú fuiste eso para mí. No por lo que pasó, sino por lo que sembraste en mi historia.</p>
+<p>
+Desde hace cuatro años que te conocí,
+entendí que hay personas que llegan para marcar una diferencia.
+Y tú, sin duda, eres una de ellas.
+</p>
 
-<p>La distancia ha sido una prueba silenciosa… a veces pesa, a veces duele… pero también demuestra que cuando algo es verdadero, ni los kilómetros lo borran.</p>
+<p>
+La distancia ha sido una prueba silenciosa…
+pero también una enseñanza.
+Porque cuando algo es verdadero,
+ni los kilómetros lo borran.
+</p>
 
-<p>Te extraño… sí, muchísimo. Pero te extraño con respeto, con admiración, con cariño limpio. No desde la insistencia, sino desde la sinceridad.</p>
+<p>
+Te extraño, sí…
+pero con respeto,
+con admiración,
+con cariño limpio.
+</p>
 
-<p>Y si algún día nuestros caminos vuelven a coincidir… quizá podríamos intentarlo una última vez, no desde la prisa, no desde la necesidad, sino desde la madurez.</p>
+<div class="final" id="finalText">
 
-<p>Solo quise dejar esa puerta entreabierta… sin presión, sin insistencia, solo con honestidad.</p>
+<p>
+Si algún día nuestros caminos vuelven a coincidir,
+me gustaría que fuera desde la calma,
+desde la madurez,
+desde lo que ambos hemos aprendido.
+</p>
 
-<div class="regalo" id="regalo">
-<button onclick="mostrarOpciones()">🎁 Abrir regalo</button>
+<p>
+No lo digo desde la insistencia,
+sino desde la honestidad de alguien que valora lo que compartimos.
+</p>
+
+<p>
+Y mientras tanto,
+solo me queda desearte felicidad,
+éxito,
+y un cumpleaños tan hermoso como tú.
+</p>
+
+<p style="margin-top:25px;">
+🌹 Poema 🌹
+</p>
+
+<p>
+Bajo el cielo que guarda memorias,
+tu nombre aún suena suave en el viento.
+Cuatro años no son solo tiempo,
+son capítulos escritos con sentimiento.
+Que tus pasos encuentren destino,
+que tus sueños encuentren verdad,
+y que si la vida vuelve a cruzarnos,
+sea con paz… y claridad.
+</p>
+
 </div>
 
-<div class="opciones" id="opciones">
-<p>¿Te gustaría intentarlo?</p>
-<button onclick="respuestaSi()">Sí</button>
-<button onclick="respuestaNo()">No</button>
-</div>
-
-<div class="resultado" id="resultado"></div>
+<button onclick="mostrarFinal()">Último intento</button>
 
 </div>
 </div>
@@ -218,28 +255,10 @@ function abrirCarta(){
 document.getElementById("inicio").style.display="none";
 document.getElementById("cartaContainer").style.display="flex";
 crearPetalos();
-crearEstrellas();
-
-setTimeout(()=>{
-document.getElementById("regalo").style.display="block";
-},12000);
 }
 
-function mostrarOpciones(){
-document.getElementById("opciones").style.display="block";
-}
-
-function respuestaSi(){
-let r=document.getElementById("resultado");
-r.style.display="block";
-r.innerHTML="✨ Felicidades… volviste a ser mi Natita de leche 💖";
-document.body.style.background="linear-gradient(to bottom,#ffb6c1,#fff)";
-}
-
-function respuestaNo(){
-let r=document.getElementById("resultado");
-r.style.display="block";
-r.innerHTML="Gracias por todo… espero que la vida nos permita intentarlo en un futuro no muy lejano 🤍";
+function mostrarFinal(){
+document.getElementById("finalText").style.display="block";
 }
 
 function crearPetalos(){
@@ -249,16 +268,6 @@ petalo.className="petalo";
 petalo.style.left=Math.random()*100+"vw";
 petalo.style.animationDuration=(5+Math.random()*5)+"s";
 document.body.appendChild(petalo);
-}
-}
-
-function crearEstrellas(){
-for(let i=0;i<40;i++){
-let star=document.createElement("div");
-star.className="star";
-star.style.top=Math.random()*100+"vh";
-star.style.left=Math.random()*100+"vw";
-document.body.appendChild(star);
 }
 }
 
