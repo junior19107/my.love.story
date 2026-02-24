@@ -60,14 +60,15 @@ transition:0.3s;
 
 button:hover{
 background:#e68ca5;
+transform:scale(1.05);
 }
 
-/* Carta animada */
+/* Fondo árbol con niños */
 
 .carta-container{
 display:none;
 height:100vh;
-background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+background-image:url('https://images.unsplash.com/photo-1493244040629-496f6d136cc3');
 background-size:cover;
 background-position:center;
 display:flex;
@@ -76,13 +77,15 @@ align-items:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.55);
+background:rgba(0,0,0,0.6);
 width:100%;
 height:100%;
 display:flex;
 justify-content:center;
 align-items:center;
 }
+
+/* Carta animada mejorada */
 
 .carta{
 background:rgba(255,255,255,0.92);
@@ -91,14 +94,14 @@ max-width:800px;
 padding:40px;
 border-radius:15px;
 box-shadow:0 20px 50px rgba(0,0,0,0.4);
-animation:abrir 1.5s ease;
+animation:abrir 1.2s ease;
 overflow-y:auto;
 max-height:90vh;
 }
 
 @keyframes abrir{
-from{transform:scale(0.7);opacity:0;}
-to{transform:scale(1);opacity:1;}
+from{transform:rotateY(90deg);opacity:0;}
+to{transform:rotateY(0);opacity:1;}
 }
 
 h2{
@@ -114,12 +117,21 @@ font-size:18px;
 color:#333;
 }
 
-.final{
+/* Segunda página */
+
+.pagina2{
 display:none;
-margin-top:30px;
-padding:20px;
-background:#fff0f5;
-border-radius:15px;
+}
+
+/* Regalo y opciones */
+
+.regalo, .opciones, .resultado{
+display:none;
+margin-top:25px;
+text-align:center;
+}
+
+.resultado{
 font-style:italic;
 }
 
@@ -137,9 +149,7 @@ animation:caer linear infinite;
 }
 
 @keyframes caer{
-to{
-transform:translateY(110vh) rotate(360deg);
-}
+to{transform:translateY(110vh) rotate(360deg);}
 }
 
 @keyframes fadeIn{
@@ -163,83 +173,81 @@ to{opacity:1;}
 <div class="overlay">
 <div class="carta">
 
+<!-- PAGINA 1 -->
+<div id="pagina1">
+
 <h2>Feliz 19 años ✨</h2>
 
-<p>
-Hoy celebramos tus 19 años… y no es solo un número.
+<p>Hoy celebramos tus 19 años… y no es solo un número.
 Es el reflejo de una historia que apenas comienza a brillar.
 Te deseo un año lleno de metas cumplidas, de sueños que tomen forma,
-de decisiones que te acerquen a la mujer increíble que estás destinada a ser.
-</p>
+de decisiones que te acerquen a la mujer increíble que estás destinada a ser.</p>
 
-<p>
-Que encuentres paz en cada paso,
+<p>Que encuentres paz en cada paso,
 que el éxito llegue con naturalidad,
 que nunca dudes del valor que tienes.
 Que la vida te sorprenda con momentos hermosos,
 con personas sinceras,
-con oportunidades grandes.
-</p>
+con oportunidades grandes.</p>
 
-<p>
-Desde hace cuatro años que te conocí,
+<button onclick="irPagina2()">Siguiente página</button>
+
+</div>
+
+<!-- PAGINA 2 -->
+<div id="pagina2" class="pagina2">
+
+<p>Desde hace cuatro años que te conocí,
 entendí que hay personas que llegan para marcar una diferencia.
-Y tú, sin duda, eres una de ellas.
-</p>
+Y tú, sin duda, eres una de ellas.</p>
 
-<p>
-La distancia ha sido una prueba silenciosa…
+<p>La distancia ha sido una prueba silenciosa…
 pero también una enseñanza.
 Porque cuando algo es verdadero,
-ni los kilómetros lo borran.
-</p>
+ni los kilómetros lo borran.</p>
 
-<p>
-Te extraño, sí…
+<p>Te extraño, sí…
 pero con respeto,
 con admiración,
-con cariño limpio.
-</p>
+con cariño limpio.</p>
 
-<div class="final" id="finalText">
-
-<p>
-Si algún día nuestros caminos vuelven a coincidir,
+<p>Si algún día nuestros caminos vuelven a coincidir,
 me gustaría que fuera desde la calma,
 desde la madurez,
-desde lo que ambos hemos aprendido.
-</p>
+desde lo que ambos hemos aprendido.</p>
 
-<p>
-No lo digo desde la insistencia,
-sino desde la honestidad de alguien que valora lo que compartimos.
-</p>
+<p>No lo digo desde la insistencia,
+sino desde la honestidad de alguien que valora lo que compartimos.</p>
 
-<p>
-Y mientras tanto,
+<p>Y mientras tanto,
 solo me queda desearte felicidad,
 éxito,
-y un cumpleaños tan hermoso como tú.
-</p>
+y un cumpleaños tan hermoso como tú.</p>
 
-<p style="margin-top:25px;">
-🌹 Poema 🌹
-</p>
+<p style="margin-top:25px;">🌹 Poema 🌹</p>
 
-<p>
-Bajo el cielo que guarda memorias,
+<p>Bajo el cielo que guarda memorias,
 tu nombre aún suena suave en el viento.
 Cuatro años no son solo tiempo,
 son capítulos escritos con sentimiento.
 Que tus pasos encuentren destino,
 que tus sueños encuentren verdad,
 y que si la vida vuelve a cruzarnos,
-sea con paz… y claridad.
-</p>
+sea con paz… y claridad.</p>
 
+<div class="regalo" id="regalo">
+<button onclick="mostrarOpciones()">🎁 Abrir regalo</button>
 </div>
 
-<button onclick="mostrarFinal()">Último intento</button>
+<div class="opciones" id="opciones">
+<p>¿Te gustaría intentarlo?</p>
+<button onclick="respuestaSi()">Sí</button>
+<button onclick="respuestaNo()">No</button>
+</div>
+
+<div class="resultado" id="resultado"></div>
+
+</div>
 
 </div>
 </div>
@@ -257,8 +265,28 @@ document.getElementById("cartaContainer").style.display="flex";
 crearPetalos();
 }
 
-function mostrarFinal(){
-document.getElementById("finalText").style.display="block";
+function irPagina2(){
+document.getElementById("pagina1").style.display="none";
+document.getElementById("pagina2").style.display="block";
+setTimeout(()=>{
+document.getElementById("regalo").style.display="block";
+},8000);
+}
+
+function mostrarOpciones(){
+document.getElementById("opciones").style.display="block";
+}
+
+function respuestaSi(){
+let r=document.getElementById("resultado");
+r.style.display="block";
+r.innerHTML="✨ Felicidades… volviste a ser mi Natita de leche 💖";
+}
+
+function respuestaNo(){
+let r=document.getElementById("resultado");
+r.style.display="block";
+r.innerHTML="Gracias por todo… espero volverlo intentar en un futuro no muy lejano 🤍";
 }
 
 function crearPetalos(){
